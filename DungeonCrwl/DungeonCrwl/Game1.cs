@@ -12,6 +12,9 @@ namespace DungeonCrwl
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        Texture2D smileyImage;
+        Vector2 smileyPosition;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -26,7 +29,9 @@ namespace DungeonCrwl
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            // Set the starting position
+            //smileyPosition = new Vector2(0.0f, 0.0f);
+            smileyPosition = Vector2.Zero;
 
             base.Initialize();
         }
@@ -40,7 +45,8 @@ namespace DungeonCrwl
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            // Loads the Smiley.png into the smileyImage variable
+            smileyImage = Content.Load<Texture2D>("Smiley");
         }
 
         /// <summary>
@@ -62,7 +68,28 @@ namespace DungeonCrwl
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            float time = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            float speed = 1000.0f;
+            float moveAmount = speed * time;
+            KeyboardState state = Keyboard.GetState();
+            if (state.IsKeyDown(Keys.Down))
+            {
+                //smileyPosition.Y = smileyPosition.Y + 1000.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                smileyPosition.Y += moveAmount;
+            }
+            if (state.IsKeyDown(Keys.Up))
+            {
+                //smileyPosition.Y = smileyPosition.Y - 1000.0f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                smileyPosition.Y -= moveAmount;
+            }
+            if (state.IsKeyDown(Keys.Left))
+            {
+                smileyPosition.X -= moveAmount;
+            }
+            if (state.IsKeyDown(Keys.Right))
+            {
+                smileyPosition.X += moveAmount;
+            }
 
             base.Update(gameTime);
         }
@@ -73,9 +100,12 @@ namespace DungeonCrwl
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.GreenYellow);
 
-            // TODO: Add your drawing code here
+            // Draw our sprite
+            spriteBatch.Begin();
+            spriteBatch.Draw(smileyImage, smileyPosition, Color.White);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
