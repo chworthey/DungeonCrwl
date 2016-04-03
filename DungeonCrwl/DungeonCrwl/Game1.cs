@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Threading;
 
 namespace DungeonCrwl
 {
@@ -14,6 +15,12 @@ namespace DungeonCrwl
 
         Texture2D smileyImage;
         Vector2 smileyPosition;
+
+        Thread mainThread;
+        DungeonCrwlMain.DungeonCrwlMain main;
+        MonoResponder responder;
+
+        public Color BackgroundColor { get; set; } = Color.GreenYellow;
 
         public Game1()
         {
@@ -47,6 +54,16 @@ namespace DungeonCrwl
 
             // Loads the Smiley.png into the smileyImage variable
             smileyImage = Content.Load<Texture2D>("Smiley");
+
+            main = new DungeonCrwlMain.DungeonCrwlMain();
+            responder = new MonoResponder(this);
+            mainThread = new Thread(new ThreadStart(mainThreadStart));
+            mainThread.Start();
+        }
+
+        void mainThreadStart()
+        {
+            main.Run(responder);
         }
 
         /// <summary>
@@ -100,7 +117,7 @@ namespace DungeonCrwl
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.GreenYellow);
+            GraphicsDevice.Clear(BackgroundColor);
 
             // Draw our sprite
             spriteBatch.Begin();
