@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using System.Threading;
+using DungeonCrwlMain;
 
 namespace DungeonCrwl
 {
@@ -33,6 +34,16 @@ namespace DungeonCrwl
             game.BackgroundColor = Color.Red;
             suspend(TimeSpan.FromSeconds(2.0));
             game.BackgroundColor = Color.Blue;
+        }
+
+        public PlayerCharacterObject CreateCharacter()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowPlayerCharacterInformation(PlayerCharacterObject player)
+        {
+            throw new NotImplementedException();
         }
     }
 }
