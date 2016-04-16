@@ -11,8 +11,6 @@ namespace DungeonCrwlMain
         public void Run(IResponder responder)
         {
             responder.ChangeBackgroundColor();
-            PlayerCharacterObject player = responder.CreateCharacter();
-            responder.ShowCharacterAttributes(player);
         }
     }
 }
