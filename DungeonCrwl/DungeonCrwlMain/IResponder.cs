@@ -9,5 +9,7 @@ namespace DungeonCrwlMain
     public interface IResponder
     {
         void ChangeBackgroundColor();
+        PlayerCharacterObject CreateCharacter();
+        void ShowCharacterAttributes(PlayerCharacterObject player);
     }
 }

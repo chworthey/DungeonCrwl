@@ -41,9 +41,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbilityScoreAttribute.cs" />
+    <Compile Include="AgeAttribute.cs" />
+    <Compile Include="AlignmentAttribute.cs" />
+    <Compile Include="ArmorProficiencies.cs" />
+    <Compile Include="AttributeComponent.cs" />
+    <Compile Include="DarkVisionDistanceAttribute.cs" />
     <Compile Include="DungeonCrwlMain.cs" />
+    <Compile Include="DwarvenResilianceAttribute.cs" />
+    <Compile Include="DwarvenToughnessAttribute.cs" />
+    <Compile Include="GameObject.cs" />
+    <Compile Include="IntegerAttribute.cs" />
     <Compile Include="IResponder.cs" />
+    <Compile Include="LanguageAttribute.cs" />
+    <Compile Include="NameAttribute.cs" />
+    <Compile Include="PlayerCharacterObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RaceAttribute.cs" />
+    <Compile Include="SizeAttribute.cs" />
+    <Compile Include="SpeedAttribute.cs" />
+    <Compile Include="StringAttribute.cs" />
+    <Compile Include="WeaponProficiencies.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
