@@ -96,7 +96,25 @@ namespace DungeonCrwlMain
 
         public override void AdjustRacialTraits(GameObject character)
         {
-            throw new NotImplementedException();
+            DexterityScoreAttribute dexterity = character.Attributes.OfType<DexterityScoreAttribute>().First();
+            dexterity.Value += 2;
+
+            SizeAttribute size = character.Attributes.OfType<SizeAttribute>().First();
+            size.Size = Size.Medium;
+
+            SpeedAttribute speed = character.Attributes.OfType<SpeedAttribute>().First();
+            speed.Value = 30;
+
+            DarkVisionAttribute vision = character.Attributes.OfType<DarkVisionAttribute>().First();
+            vision.Value = 60;
+
+            character.Attributes.Add(new KeenSensesAttribute());
+            character.Attributes.Add(new FeyAncestryAttribute());
+
+            character.Attributes.Add(new LanguageAttribute() { Value = "Common" });
+            character.Attributes.Add(new LanguageAttribute() { Value = "Elvish" });
+
+            AdjustRacialTraitsImpl(character);
         }
 
         protected abstract void AdjustRacialTraitsImpl(GameObject character);
@@ -110,7 +128,10 @@ namespace DungeonCrwlMain
 
         protected override void AdjustRacialTraitsImpl(GameObject character)
         {
-            throw new NotImplementedException();
+            IntelligenceScoreAttribute intelligence = character.Attributes.OfType<IntelligenceScoreAttribute>().First();
+            intelligence.Value++;
+
+
         }
     }
 

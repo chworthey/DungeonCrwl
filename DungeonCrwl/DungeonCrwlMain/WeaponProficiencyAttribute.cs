@@ -11,7 +11,11 @@ namespace DungeonCrwlMain
         Battleaxe,
         Handaxe,
         LightHammer,
-        Warhammer
+        Warhammer,
+        LongSword,
+        ShortSword,
+        ShortBow,
+        LongBow
     }
 
     public class WeaponProficiencyAttribute : AttributeComponent

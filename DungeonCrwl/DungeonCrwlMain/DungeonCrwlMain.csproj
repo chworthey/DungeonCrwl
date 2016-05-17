@@ -51,10 +51,12 @@
     <Compile Include="DwarvenHeavyArmorSpeedReductionAttribute.cs" />
     <Compile Include="DwarvenResilianceAttribute.cs" />
     <Compile Include="DwarvenToughnessAttribute.cs" />
+    <Compile Include="FeyAncestryAttribute.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GlobalHelper.cs" />
     <Compile Include="IntegerAttribute.cs" />
     <Compile Include="IResponder.cs" />
+    <Compile Include="KeenSensesAttribute.cs" />
     <Compile Include="LanguageAttribute.cs" />
     <Compile Include="PlayerCharacterObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
